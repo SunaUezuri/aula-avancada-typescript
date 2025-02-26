@@ -1,3 +1,4 @@
+import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos"
 import { Carro } from "./interface/Carro"
 import { Moto } from "./interface/Moto"
 
@@ -23,3 +24,21 @@ console.log(`Carro: ${meuCarro}`)
 console.log(meuCarro.acelerar)
 console.log(`Moto: ${minhaMoto}`)
 console.log(minhaMoto.acelerar)
+
+const gerenciadorCarro = new GerenciadorVeiculos<Carro>();
+const gerenciadorMoto = new GerenciadorVeiculos<Moto>();
+
+gerenciadorCarro.adicionar(meuCarro);
+gerenciadorMoto.adicionar(minhaMoto);
+
+//Listando os veículos em cada um dos gerenciadores
+gerenciadorCarro.listarVeiculos();
+gerenciadorMoto.listarVeiculos();
+
+//Removendo os itens da lista
+gerenciadorCarro.remover(meuCarro);
+gerenciadorMoto.remover(minhaMoto);
+
+//Verificando se a remoção foi feita
+gerenciadorCarro.listarVeiculos();
+gerenciadorMoto.listarVeiculos();
