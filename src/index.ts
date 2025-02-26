@@ -1,3 +1,4 @@
+import { EstoqueVeiculos } from "./classes/EstoqueVeiculos"
 import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos"
 import { Carro } from "./interface/Carro"
 import { Moto } from "./interface/Moto"
@@ -42,3 +43,21 @@ gerenciadorMoto.remover(minhaMoto);
 //Verificando se a remoção foi feita
 gerenciadorCarro.listarVeiculos();
 gerenciadorMoto.listarVeiculos();
+
+//Utilizando a classe EstoqueVeiculos
+const estoqueCarro = new EstoqueVeiculos<Carro>();
+const estoqueMoto = new EstoqueVeiculos<Moto>();
+
+estoqueCarro.adicionarEstoque("Opala", 3);
+
+estoqueCarro.consultaEstoque("Opala");
+
+estoqueMoto.adicionarEstoque("Suzuki", 3);
+
+estoqueMoto.consultaEstoque("Suzuki");
+
+estoqueMoto.removerEstoque("Suzuki", 1);
+estoqueMoto.consultaEstoque("Suzuki");
+
+estoqueCarro.removerEstoque("Opala", 2);
+estoqueCarro.consultaEstoque("Opala");
