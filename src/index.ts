@@ -2,6 +2,8 @@ import { EstoqueVeiculos } from "./classes/EstoqueVeiculos"
 import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos"
 import { Carro } from "./interface/Carro"
 import { Moto } from "./interface/Moto"
+import { Veiculo } from "./interface/Veiculo"
+import { FiltroVeiculos } from "./utils/Filtroveiculos"
 
 const meuCarro: Carro = {
     marca: "Toyota",
@@ -61,3 +63,32 @@ estoqueMoto.consultaEstoque("Suzuki");
 
 estoqueCarro.removerEstoque("Opala", 2);
 estoqueCarro.consultaEstoque("Opala");
+
+//Testando a classe FiltroVeiculos
+
+//Criando a lista de veículos
+const veiculosList: Veiculo[] = [
+    {
+        marca: "Toyota", modelo: "Corolla", ano: 2018,
+        acelerar: () => "O veículo está acelerando!"
+    },
+    { 
+        marca: "Honda", modelo: "Civic", ano: 2020, 
+        acelerar: () => "O veículo está acelerando!"
+    },
+    { 
+        marca: "Ford", modelo: "Focus", ano: 2018,
+        acelerar: () => "O veículo está acelerando!"
+    },
+    { 
+        marca: "Toyota", modelo: "Camry", ano: 2019, 
+        acelerar: () => "O veículo está acelerando!"
+    },
+  ];
+
+//Realizando os testes
+const veiculosAno2018 = FiltroVeiculos.filtrarPorAno(veiculosList ,2018);
+const veiculosToyota = FiltroVeiculos.filtrarPorMarca(veiculosList, "Toyota");
+
+console.log("Veículos do ano 2018:", JSON.stringify(veiculosAno2018, null, 2));
+console.log("Veículos da marca Toyota:", JSON.stringify(veiculosToyota, null, 2));
