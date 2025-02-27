@@ -4,6 +4,7 @@ import { Carro } from "./interface/Carro"
 import { Moto } from "./interface/Moto"
 import { Veiculo } from "./interface/Veiculo"
 import { FiltroVeiculos } from "./utils/Filtroveiculos"
+import { gerarRelatorio } from "./utils/RelatorioVeiculos"
 
 const meuCarro: Carro = {
     marca: "Toyota",
@@ -92,3 +93,7 @@ const veiculosToyota = FiltroVeiculos.filtrarPorMarca(veiculosList, "Toyota");
 
 console.log("Veículos do ano 2018:", JSON.stringify(veiculosAno2018, null, 2));
 console.log("Veículos da marca Toyota:", JSON.stringify(veiculosToyota, null, 2));
+
+//Utilizando a função de FiltroVeiculos
+const relatorio = gerarRelatorio(veiculosList);
+console.log(relatorio);
