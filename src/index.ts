@@ -3,7 +3,7 @@ import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos"
 import { Carro } from "./interface/Carro"
 import { Moto } from "./interface/Moto"
 import { Veiculo } from "./interface/Veiculo"
-import { FiltroVeiculos } from "./utils/Filtroveiculos"
+import { FiltroVeiculos } from "./utils/FiltroVeiculos"
 import { gerarRelatorio } from "./utils/RelatorioVeiculos"
 
 const meuCarro: Carro = {
@@ -90,9 +90,11 @@ const veiculosList: Veiculo[] = [
 //Realizando os testes
 const veiculosAno2018 = FiltroVeiculos.filtrarPorAno(veiculosList ,2018);
 const veiculosToyota = FiltroVeiculos.filtrarPorMarca(veiculosList, "Toyota");
+const veiculoCivic = FiltroVeiculos.filtrarPorModelo(veiculosList, "Civic");
 
 console.log("Veículos do ano 2018:", JSON.stringify(veiculosAno2018, null, 2));
 console.log("Veículos da marca Toyota:", JSON.stringify(veiculosToyota, null, 2));
+console.log("Veículos do modelo Civic:", JSON.stringify(veiculoCivic, null, 2));
 
 //Utilizando a função de FiltroVeiculos
 const relatorio = gerarRelatorio(veiculosList);
